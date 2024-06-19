@@ -9,6 +9,7 @@ def generate_QR():
             messagebox.showinfo("Error", "Please enter a valid mobile number")
             return
     if len(user_input.get())!=0 :
+        global qr,img
         qr = pyqrcode.create(user_input.get())
         img = BitmapImage(data = qr.xbm(scale=8))
         l1.config(image = img)
