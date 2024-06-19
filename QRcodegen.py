@@ -1,8 +1,13 @@
 from tkinter import *
 from tkinter import messagebox
-from pyqrcode import *
+import pyqrcode 
+import re
 
 def generate_QR():
+    info1=e1.get()
+    if not re.match(r"^[0-9]{10}$", info1):
+            messagebox.showinfo("Error", "Please enter a valid mobile number")
+            return
     if len(user_input.get())!=0 :
         qr = pyqrcode.create(user_input.get())
         img = BitmapImage(data = qr.xbm(scale=8))
