@@ -25,11 +25,13 @@ def generate_qr_code():
     img = qr.make_image(fill='black', back_color='white')
 
     # Save the image file
-    img.save("phone_number_qr.png")
+    # Save the image file
+    filename = f"{phone_number}_qr.png"
+    img.save(filename)
 
     # Display the image
     img = Image.open("phone_number_qr.png")
-    img = img.resize((200, 200), Image.ANTIALIAS)
+    img = img.resize((200, 200), Image.BICUBIC)
     img = ImageTk.PhotoImage(img)
 
     qr_label.config(image=img)
